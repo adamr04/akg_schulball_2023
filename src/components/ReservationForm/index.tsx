@@ -11,10 +11,6 @@ export const ReservationForm = () => {
   const [guestList, setGuestList] = useState([
     { guestName: "", student: false, table: false },
   ]);
-
-  const [classText, setClassText] = useState<string>('');
-
-
   // handle input change
   const handleInputChange = (e, index) => {
     const { name, value } = e.target;
@@ -42,12 +38,6 @@ export const ReservationForm = () => {
     ]);
   };
 
-  const handleClassTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setClassText(event.target.value);
-};
-
-  
-
   const renderSelectedGuests = () => {
     let str = "";
     guestList.forEach((guest) => {
@@ -57,7 +47,6 @@ export const ReservationForm = () => {
     });
     return str;
   };
-
 
   const countStudent = guestList.filter(
     (guest) => guest.student === true
@@ -239,20 +228,14 @@ export const ReservationForm = () => {
                     </label>
 
                     <label id="inputSchulklasse">
-                      <input 
-                        id="inputTextSchulklasse"
+                      <input
                         type="text"
                         name="class"
+                        onChange={(e) => handleCheckboxChange(e, i)}
                         className="border-2 focus:border-skin-primary"
-                        required 
-                        value={classText}
-                        onChange={handleClassTextChange}
                       />
-
                       <span>Klasse (AKG Schüler)</span>
                     </label>
-
-
 
                   </div>
                 </section>
@@ -273,7 +256,6 @@ export const ReservationForm = () => {
                 )}
               </React.Fragment>
             );
-
           })}
         </section>
         <form onSubmit={handleSubmit}>
@@ -319,14 +301,6 @@ export const ReservationForm = () => {
               type="number"
               name="Vorverkauf EUR"
               value={totalVVK}
-              readOnly
-              className="hidden"
-            />
-            
-            <input
-              type="text"
-              name="Schulklasse"
-              value={classText}
               readOnly
               className="hidden"
             />
