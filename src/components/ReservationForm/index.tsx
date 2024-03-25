@@ -224,19 +224,8 @@ export const ReservationForm = () => {
                         onChange={(e) => handleCheckboxChange(e, i)}
                         className="border-2 focus:border-skin-primary"
                       />
-                      <span>Tischplatz (15,-) (optional)</span>
+                      <span>Tisch Sitzplatz (€ 15,-) (optional)</span>
                     </label>
-
-                    <label id="inputSchulklasse">
-                      <input
-                        type="text"
-                        name="class"
-                        onChange={(e) => handleCheckboxChange(e, i)}
-                        className="border-2 focus:border-skin-primary"
-                      />
-                      <span>Klasse (AKG Schüler)</span>
-                    </label>
-
                   </div>
                 </section>
                 {guestList.length - 1 === i && (
@@ -246,7 +235,6 @@ export const ReservationForm = () => {
                     className="addItem"
                     onClick={handleAddClick}
                   >
-                    
                     <PlusIcon
                       className="h-6 w-6 -mt-1 mr-3"
                       aria-hidden="true"
